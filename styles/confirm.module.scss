@@ -1,0 +1,32 @@
+.kz-main-left {
+  padding: 48px 24px 24px 128px;
+}
+.kz-main-right {
+  padding: 48px 0 24px 24px;
+  background-color: #f5f5f5;
+}
+.kz-dl {
+  display: flex;
+  justify-content: space-between;
+}
+.kz-flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.km-paytype {
+  position: relative;
+  height: 60px;
+  img {
+    object-fit: contain;
+  }
+}
+.km-cart-product {
+  position: relative;
+  &-img {
+    height: 120px;
+    img {
+      object-fit: cover;
+    }
+  }
+}
