@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { server } from '@/config';
+import { server } from "@/config";
+import { productData } from "@/pages/api/productData";
 import {
   Button,
   Space,
@@ -32,19 +33,19 @@ import Head from "next/head";
 import styles from "../styles/index.module.scss";
 import Router from "next/router";
 
-export async function getStaticProps() {
-  const res = await fetch(`${server}/api/product`);
-  const productList = await res.json();
-  return {
-    props: {
-      productList,
-    },
-  };
-}
+// export async function getStaticProps() {
+//   const res = await fetch(`${server}/api/product`);
+//   const productList = await res.json();
+//   return {
+//     props: {
+//       productList,
+//     },
+//   };
+// }
 
 let active_product: any = {};
 
-export default function Home({ productList }) {
+export default function Home() {
   // store数据
   const userCartProduct = () => {
     const addCartProduct = useSelector((state: any) => state.addCartProduct);
@@ -217,7 +218,7 @@ export default function Home({ productList }) {
           </div>
         </div> */}
         <div className={styles["kz-product-container"]}>
-          {productList.map((item) => (
+          {productData.map((item) => (
             <div
               key={item.product_id}
               className={styles["kz-product-item"]}
