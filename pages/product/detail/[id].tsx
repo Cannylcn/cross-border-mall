@@ -33,6 +33,7 @@ import {
 import styles from "@/styles/index.module.scss";
 
 export default function Home() {
+
   const router = useRouter();
   const { id, cate } = router.query;
 
@@ -60,6 +61,10 @@ export default function Home() {
   function callback(key) {
     console.log(key);
   }
+
+  const checkout = () => {
+    window.localStorage.setItem("km-cart", JSON.stringify([product]));
+  };
 
   return (
     <div>
@@ -128,7 +133,9 @@ export default function Home() {
                   block
                   size="large"
                   className={styles["kz-product-btn-buy"]}
+                  href="/order/confirm/86697?step=contact_information"
                   htmlType="submit"
+                  onClick={checkout}
                 >
                   Checkout
                 </Button>
